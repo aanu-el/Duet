@@ -1,9 +1,11 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 require("dotenv").config()
+
 const connectToMongoDb = require("./config/dbConfig")
 const httpLogger = require("./logger/httpLogger")
 const logger = require("./logger/logger")
+const userRouter = require("./routes/users.route")
 
 const PORT = process.env.PORT
 const app = express()
@@ -18,6 +20,7 @@ app.use(httpLogger)
 app.get("/api/v1/", (req, res) => {
   res.end("Home Page")
 })
+app.use("/api/v1/users", userRouter)
 
 // ==> Error Handler
 app.use((err, req, res, next) => {

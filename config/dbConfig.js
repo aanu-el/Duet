@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const logger = require('../logger/logger')
+mongoose.set('strictQuery', false)
 
 const MONGODB_URL = process.env.MONGODB_URL
 
@@ -15,6 +16,5 @@ function connectToMongoDb() {
   })
 }
 
-module.exports = {
-  connectToMongoDb
-}
+module.exports = connectToMongoDb
+

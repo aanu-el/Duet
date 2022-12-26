@@ -17,6 +17,14 @@ const postSchema = new Schema({
   view_count: {
     type: Number,
     default: 0
+  },
+  createdAt: {
+    type: Date,
+        default: Date.now
+  },
+  lastUpdatedAt: {
+    type: Date,
+        default: Date.now
   }
 })
 
